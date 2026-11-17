@@ -1,0 +1,52 @@
+---
+import '../styles/global.css';
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'Cloud architecture, data engineering, machine learning, and AI projects by Dima Williams.' } = Astro.props;
+const homeUrl = import.meta.env.BASE_URL;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8fa" />
+    <meta name="description" content={description} />
+    <title>{title} · Dima Williams</title>
+    <link rel="icon" type="image/svg+xml" href={`${homeUrl}favicon.svg`} />
+    <script is:inline>
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || savedTheme === 'light') document.documentElement.dataset.theme = savedTheme;
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-wrap" aria-label="Main navigation">
+        <a class="wordmark" href={homeUrl} aria-label="Dima Williams, home"><span class="wordmark-mark">DW</span><span>Dima Williams</span></a>
+        <div class="nav-links">
+          <a href={`${homeUrl}#work`}>Work</a>
+          <a href={`${homeUrl}#about`}>About</a>
+          <a href={`${homeUrl}#contact`}>Contact</a>
+          <button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme">
+            <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+            <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.7A8.8 8.8 0 0 1 8.3 3.8 8.9 8.9 0 1 0 20.2 15.7Z"/></svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main><slot /></main>
+    <footer class="site-footer">
+      <div class="footer-inner"><a class="wordmark" href={homeUrl}><span class="wordmark-mark">DW</span><span>Dima Williams</span></a><p>Designed for cloud-scale thinking.</p><span>© {new Date().getFullYear()} Dima Williams</span></div>
+    </footer>
+    <script>
+      const toggle = document.querySelector<HTMLButtonElement>('.theme-toggle');
+      toggle?.addEventListener('click', () => {
+        const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem('theme', next);
+      });
+    </script>
+  </body>
+</html>
