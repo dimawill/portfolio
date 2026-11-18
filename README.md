@@ -25,7 +25,7 @@ The static site is written to `dist/` and can be hosted on GitHub Pages, S3, or 
 
 1. Create a Markdown file in `src/content/pocs/`, for example `src/content/pocs/my-project.md`.
 2. Add a corresponding image in `public/images/` (SVG, WebP, PNG, or JPG) and set `image` to its public path, such as `/images/my-project.svg`.
-3. Add the frontmatter fields shown below. `category` must be one of the four listed slugs. Use real repository and demo URLs before publishing; placeholder links are used by the starter examples.
+3. Add the frontmatter fields shown below. `category` must be one of the four listed slugs. Use real repository URLs; if there is no live demo, clearly say so in the project narrative.
 4. Write the body using the three section headings `## Problem`, `## Architecture`, and `## Results`.
 5. Run `npm run build` locally, then commit and push. The category listing and detail page are generated automatically from the Markdown file.
 
@@ -60,7 +60,7 @@ Supported categories:
 - `ml-engineering` — ML Engineering
 - `ai-genai` — AI / GenAI
 
-The included four sample PoCs are clearly labeled placeholders. Replace their content, links, and images with verified project details before sharing the site publicly.
+The four featured PoCs link to public source repositories. Their results sections distinguish local tests from unverified AWS deployments.
 
 ## Contact links
 
