@@ -52,17 +52,10 @@ test('Astro build outputs the homepage and one generated detail page per PoC', (
   for (const file of files) {
     const slug = file.replace(/\.md$/, '');
     const detail = readFileSync(path.join(root, `dist/pocs/${slug}/index.html`), 'utf8');
-    const markdown = readFileSync(path.join(contentDir, file), 'utf8');
-    const body = markdown.slice(markdown.indexOf('---', 4) + 3);
     const card = homepage.match(new RegExp(`<a class="project-card" href="[^"]*/pocs/${slug}/">([\\s\\S]*?)<\\/a>`))?.[1];
     assert.ok(card, `${file} has no homepage card`);
-    if (body.includes('Placeholder PoC:')) {
-      assert.match(detail, /PLACEHOLDER POC/);
-      assert.match(card, /PLACEHOLDER POC/);
-    } else {
-      assert.doesNotMatch(detail, /PLACEHOLDER POC/);
-      assert.doesNotMatch(card, /PLACEHOLDER POC/);
-    }
+    assert.doesNotMatch(detail, /PLACEHOLDER POC/);
+    assert.doesNotMatch(card, /PLACEHOLDER POC/);
     assert.match(detail, /Problem/);
     assert.match(detail, /Architecture/);
     assert.match(detail, /Results/);
