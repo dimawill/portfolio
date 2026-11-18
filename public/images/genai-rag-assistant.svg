@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="460" viewBox="0 0 900 460" role="img" aria-labelledby="title desc">
+  <title id="title">Bedrock RAG assistant architecture</title>
+  <desc id="desc">Private S3 study notes sync through a Bedrock Knowledge Base into S3 Vectors. API Gateway calls Lambda, which retrieves evidence, invokes a guarded Bedrock model, and returns citations.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1730"/><stop offset="1" stop-color="#173b51"/></linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8z" fill="#64d5cf"/></marker>
+  </defs>
+  <rect width="900" height="460" fill="url(#bg)"/>
+  <text x="42" y="57" fill="#fff" font-size="28" font-family="system-ui,sans-serif" font-weight="700">Document-grounded AWS study assistant</text>
+  <text x="42" y="84" fill="#b8d4e3" font-size="14" font-family="system-ui,sans-serif">Retrieval • guarded generation • source citations</text>
+  <g fill="#193c55" stroke="#64d5cf" stroke-width="2">
+    <rect x="43" y="137" width="175" height="83" rx="12"/><rect x="353" y="137" width="184" height="83" rx="12"/><rect x="682" y="137" width="175" height="83" rx="12"/>
+    <rect x="43" y="302" width="175" height="83" rx="12"/><rect x="353" y="302" width="184" height="83" rx="12"/><rect x="682" y="302" width="175" height="83" rx="12"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" font-weight="600">
+    <text x="130" y="169">S3 documents</text><text x="130" y="194" fill="#b8d4e3" font-size="12">original study notes</text>
+    <text x="445" y="169">Bedrock KB</text><text x="445" y="194" fill="#b8d4e3" font-size="12">sync + embed</text>
+    <text x="769" y="169">S3 Vectors</text><text x="769" y="194" fill="#b8d4e3" font-size="12">search index</text>
+    <text x="130" y="334">API Gateway</text><text x="130" y="359" fill="#b8d4e3" font-size="12">key + throttle</text>
+    <text x="445" y="334">Lambda</text><text x="445" y="359" fill="#b8d4e3" font-size="12">retrieve + validate cites</text>
+    <text x="769" y="334">Bedrock model</text><text x="769" y="359" fill="#b8d4e3" font-size="12">Converse + Guardrails</text>
+  </g>
+  <g stroke="#64d5cf" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M219 178H345"/><path d="M538 178H674"/><path d="M219 343H345"/><path d="M538 343H674"/><path d="M445 299V228"/>
+  </g>
+  <text x="42" y="432" fill="#b8d4e3" font-size="13" font-family="system-ui,sans-serif">Answers require numbered evidence [1] and return S3 source URIs • no live deployment claimed</text>
+</svg>
