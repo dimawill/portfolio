@@ -25,4 +25,4 @@ AWS CDK provisions a Cognito user pool and public CLI app client, a Cognito-auth
 
 ## Results
 
-**Pending deployment.** Unit tests and CDK assertion tests are provided; no live traffic, measured latency, cost, restore result or deployment result is claimed. After deployment, run the smoke test and add observed findings here. The `demoUrl` points to the proposed repository, not a hosted service.
+**Pending deployment.** Unit tests and CDK assertion tests are provided; no live traffic, measured latency, cost, restore result or deployment result is claimed. After deployment, run the smoke test and add observed findings here. The code repository is published on GitHub. This PoC is not deployed or hosted; the repository URL is not a live demo.

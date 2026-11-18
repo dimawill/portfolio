@@ -21,7 +21,7 @@ Show how a repeatable training workflow can reject weak forecasts before publica
 
 ## Architecture
 
-CDK provisions encrypted private input/artifact S3 buckets, a Step Functions state machine, SageMaker XGBoost training and batch evaluation, a Lambda held-out RMSE gate, SageMaker Model Registry, and failure/timeout alarms. An execution can request a second batch transform; a separate CDK flag enables real-time endpoint creation and data capture, default OFF. The Python preparation/metric scripts, tests, architecture diagram and manual OIDC workflow are in the repository. The image is a portfolio asset; `repoUrl`/`demoUrl` are proposed repository URLs, not a hosted demo or proof that the repository has been published.
+CDK provisions encrypted private input/artifact S3 buckets, a Step Functions state machine, SageMaker XGBoost training and batch evaluation, a Lambda held-out RMSE gate, SageMaker Model Registry, and failure/timeout alarms. An execution can request a second batch transform; a separate CDK flag enables real-time endpoint creation and data capture, default OFF. The Python preparation/metric scripts, tests, architecture diagram and manual OIDC workflow are in the repository. The code repository is published on GitHub. This PoC is not deployed or hosted; there is no live demo.
 
 ## Results
 
