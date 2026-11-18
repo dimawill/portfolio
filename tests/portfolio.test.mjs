@@ -63,6 +63,21 @@ test('Astro build outputs the homepage and one generated detail page per PoC', (
 });
 
 
+test('published PoC pages show one repository link and honest deployment status', () => {
+  for (const file of files) {
+    const slug = file.replace(/\.md$/, '');
+    const metadata = frontmatter(readFileSync(path.join(contentDir, file), 'utf8'));
+    const repoUrl = metadata.match(/^repoUrl:\s*(.+)$/m)?.[1];
+    const detail = readFileSync(path.join(root, `dist/pocs/${slug}/index.html`), 'utf8');
+    const links = [...detail.matchAll(/<a\b[^>]*\bhref="([^"]+)"[^>]*>/g)];
+    assert.equal(links.filter((match) => match[1] === repoUrl).length, 1, `${slug} must link to the repository once`);
+    assert.match(detail, /View repository/);
+    assert.match(detail, /Pending deployment/);
+    assert.match(detail, /not deployed or hosted/);
+    assert.doesNotMatch(detail, /Live demo|not been published|proposed repository/);
+  }
+});
+
 test('homepage links use Dima’s real contact and company URLs', () => {
   const homepage = readFileSync(path.join(root, 'dist/index.html'), 'utf8');
   assert.match(homepage, /href="mailto:williams\.dima@gmail\.com"/);
